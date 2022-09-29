@@ -54,4 +54,4 @@ These names are somewhat literal in the sense that a greedy match, will match as
 
 ## Author
 
-Check out my  <a href="github.com/ohdangbro">Github</a>!
+Check out my  <a href="https://github.com/OhDangBro">Github</a>!
