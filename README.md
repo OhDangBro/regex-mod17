@@ -1,75 +1,56 @@
 # Module 17
 
-Regex Tutorial 
+Matching email regex tutorial.
 
 ## Summary
-
-     Regex.   
+Regex is a regular expression. I will be using the matching email regex which is demonstrated by '/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/  This regex is used to validate an email address. It can be compared to a validator but acts more in the sense of a search for correct input.  This email regex can be used in a contact form, sign up or other forms of input to make sure the input is in the correct format. 
+      
 
 
 ## Table of Contents
 
 - [Anchors](#anchors)
 - [Quantifiers](#quantifiers)
-- [OR Operator](#or-operator)
+<!-- - [OR Operator](#or-operator) -->
 - [Flags](#flags)
 - [Character Classes](#character-classes)
 - [Grouping and Capturing](#grouping-and-capturing)
 - [Bracket Expressions](#bracket-expressions)
 - [Look-ahead and Look-behind](#look-ahead-and-look-behind)
+- [Greedy and Lazy Match](#greedy-and-lazy-match)
 
 ## Regex Components
 
 ### Anchors
-Anchors are used to match the start or end of a line.  These are used for matching locations. The two anchors used are ^ and $. 
-^ is used for the start of a line, while $ is used for the end of a line.
+The anchors ^ and $ are used. In a singular line mode the anchor ^, is used to match the start of a line, while the $ is used to match the end of a line. 
 
 
 ### Quantifiers
-Quantifiers are used to set a limit on characters/numbers. The two main are + and ?.  + can be used to search a pattern atleast once or multiple times, while ? can be used to search once or none at all.
-### OR Operator
-OR operators are used to match what is on either side of a character. They can be thought of as functioning in a continuation of something and are easily thought of as and/or systems.
+Quantifiers are used to match a character, group or character class in a string. While using a regex for email validation one would want to use the +. This specific example is known as a "greedy operator", and is responsible for matching as many occurances as are available. While using the regex '[a-z0-9_\.-] and [A-Z0-9-] +@' will seach for all things in the bracket such as letters a-z and/or 0-9 covering all of the alphabet and all possible numbers, regardless of combination. The @ symbol will be used to verify the email as all email addresses have the "@aol.com/@gmail" for example. Another quantifier is the 
+
+
+<!-- ### OR Operator  Doesnt exist-->
+
 
 ### Character Classes
-Character classes(also called character sets), can be used to match only one out of several characters.  A good example of character classes is that you can use something such as [] and search for 'ae' inside the []. This allows a user to search for gray or grey, an easy way to search through documents that may be American or British. 
+This regex uses a \ and functions by looking for a single digit. It can be used solo and look for one digit or can be used multiple times to look for mulitple digits with each \ corresponding to a digit in the search. 
 
 ### Flags
-Flags, are an optional parameter, that can be used to change the behavior of searching. It searches for something given by the user until it can find a condition that matches.
+/ is the flag for the email validation regex. You can see the / at the start followed by character, but also the final / being the end of this regex. 
 
 ### Grouping and Capturing
-"Groups group multiple patterns as a whole, and capturing groups provide extra submatch information when using a regular expression pattern to match against a string. Backreferences refer to a previously captured group in the same regular expression."
-(src=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Groups_and_Backreferences)
-
--From what I'm reading and my understanding it's almost similiar to marking classes to catch certain data. 
+ This regex groups in the sense of how an email is formatted. It groups in the sense of   'string' '@' and a 'top-level-domain'. 
 
 ### Bracket Expressions
--[abcd]	Matches any character in the square brackets.	[nN][oO] matches no, nO, No, and NO.
-gr[ae]y matches both spellings of the word 'grey'; that is, gray and grey.
 
---------------------------------------------------------
-[a-d]	Matches any character in the range of characters separated by a hyphen (-).	[0-9] matches any decimal digit.
-[ab3-5] matches a, b, 3, 4, and 5.
+The bracket expressions are used to search for a string and match it with what is currently contained in the brackets. Such as a-z which is looking for all of the alphabet as opposed to the literal only a and z. The same can be used for the 0-9 with numbers. 
 
-[0-9]{4} matches any four-digit string.
+### Greedy and Lazy Match
+These names are somewhat literal in the sense that a greedy match, will match as much as possible and be "greedy" about how much it can match, while on the opposite side the lazy match will try lazily match as little as possible. 
 
-^[A-Za-z]+$ matches any string that contains only upper or lowercase characters.
 
-\[[0-9 ]*\] matches an opening square bracket, followed by any digits or spaces, followed by a closed bracket.
 
---------------------------------------------------
-[^abcd]
-[^a-d]
 
-Matches any character except those in the square brackets or in the range of characters separated by a hyphen (-).	[^0-9] matches any string that does not contain any numeric characters.
-
-----------------------------------------------------------------
-[.ab.]	Matches a multi-character collating element.	[.ch.] matches the multi-character collating sequence ch (if the current language supports that collating sequence).
-
-----------------------------------------------------------------
-[=a=]	Matches all collating elements with the same primary sort order as that element, including the element itself.	[=e=] matches e and all the variants of e in the current locale.
-
-### Look-ahead and Look-behind
-Look ahead and look behind will follow grouped symbols and look ahead of them or after them. Such as "find expression A where B does not follow A(?|B) or a look behind where "find expression A where expression B preceds"  such as (?<=B)A
 
 ## Author
 
